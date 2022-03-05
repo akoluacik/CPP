@@ -10,3 +10,14 @@ player moves, place a 1 in the specified square. Place a 2 wherever the second p
 determine whether the game has been won or is a draw. 
 
     - Related solution files are 17.15.cpp as main program, TicTacToe.cpp and TicTacToe.h. 
+
+- Q17.19 : Modify class Date in Fig. 17.17 to have the following capabilities:
+    a) Output the date in multiple formats such as
+    DDD YYYY
+    MM/DD/YY
+    June 14, 1992
+    b) Use overloaded constructors to create Date objects initialized with dates of the formatsin part (a).
+    c) Create a Date constructor that reads the system date using the standard library functions of the <ctime> header and sets the Date members. See your compiler’s reference docu-
+    mentation or en.cppreference.com/w/cpp/chrono/c for information on the functions in header <ctime> . You might also want to check out C++11’s new chrono library at en.cppreference.com w/cpp/chrono
+
+        - Related files for the solution are Date.h, Date.cpp and 17.19.cpp. Note that part will be done asap. In this version, program have three ctor, one use ctime, one takes three and the other takes two parameters.
