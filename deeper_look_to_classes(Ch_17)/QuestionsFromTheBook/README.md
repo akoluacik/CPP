@@ -2,7 +2,7 @@
 
 - Q17.14 : Create a class HugeInteger that uses a 40-element array of digits to store integers as large as 40 digits each. Provide member functions input ,  output , add and subtract . For comparing HugeInteger objects, provide functions isEqualTo , isNotEqualTo , isGreaterThan , isLessThan ,  isGreaterThanOrEqualTo and isLessThanOrEqualTo —each of these is a “predicate” function that simply returns true if the relationship holds between the two  HugeInteger s and re-turns false if the relationship does not hold. Also, provide a predicate function isZero . If you feel ambitious, provide member  functions multiply , divide and modulus .
 
-    - Related solutions are 17.14.cpp as main program, HugeInteger.h is the definition of the class, and HugeInteger.cpp contains the body of the methods.  
+    - Related solutions are 17.14.cpp as main program, HugeInteger.h is the definition of the class, and HugeInteger.cpp contains the body of the methods.
     HugeIntegerUtility.cpp contains helper functions which are not attributes of HugeInteger but helps to solve.
 
 - Q17.15 : Create a class TicTacToe that will enable you to write a complete program to play the game of tic-tac-toe. The class contains as private data a 3-by-3 two-dimensional array of integers. The constructor should initialize the empty board to all zeros. Allow two human players. Wherever the first 
@@ -19,5 +19,7 @@ determine whether the game has been won or is a draw.
     b) Use overloaded constructors to create Date objects initialized with dates of the formatsin part (a).
     c) Create a Date constructor that reads the system date using the standard library functions of the <ctime> header and sets the Date members. See your compiler’s reference docu-
     mentation or en.cppreference.com/w/cpp/chrono/c for information on the functions in header <ctime> . You might also want to check out C++11’s new chrono library at en.cppreference.com w/cpp/chrono
-
-        - Related files for the solution are Date.h, Date.cpp and 17.19.cpp. Note that part will be done asap. In this version, program have three ctor, one use ctime, one takes three and the other takes two parameters.
+    
+    - Related files for the solution are Date.h, Date.cpp and 17.19.cpp. 
+    Note that part will be done asap. In this version, program have three ctor, 
+    one use ctime, one takes three and the other takes two parameters.
