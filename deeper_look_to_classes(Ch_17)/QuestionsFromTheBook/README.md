@@ -23,3 +23,16 @@ determine whether the game has been won or is a draw.
     - Related files for the solution are Date.h, Date.cpp and 17.19.cpp. 
     Note that part will be done asap. In this version, program have three ctor, 
     one use ctime, one takes three and the other takes two parameters.
+- Q17.20 : ( SavingsAccount Class) Create a SavingsAccount class. Use a static data member annual-
+to store the annual interest rate for each of the savers. Each member of the class con-
+tains a private data member savingsBalance indicating the amount the saver currently has on
+deposit. Provide member function calculateMonthlyInterest that calculates the monthly interest
+by multiplying the savingsBalance by annualInterestRate divided by 12; this interest should be
+added to savingsBalance . Provide a static member function modifyInterestRate that sets the
+static annualInterestRate to a new value. Write a driver program to test class SavingsAccount . In-
+stantiate two different objects of class SavingsAccount , saver1 and saver2 , with balances of
+$2000.00 and $3000.00, respectively. Set the annualInterestRate to 3 percent. Then calculate the
+monthly interest and print the new balances for each of the savers. Then set the annualInterestRate
+to 4 percent, calculate the next month’s interest and print the new balances for each of the savers.
+
+    - Related files 17.20.cpp along with SavingAccounts.h and SavingAccount.cpp.
