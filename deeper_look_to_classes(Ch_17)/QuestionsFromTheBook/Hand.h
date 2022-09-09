@@ -3,18 +3,27 @@
 #ifndef HAND_H
 #define HAND_H
 
+typedef enum {
+    NOTHING     = -1,
+    STRAIGHT    =  0,
+    THREE_KIND  =  1,
+    FOUR_KIND   =  2,
+    FLUSH       =  3,
+} HandKind;
+
 class Hand
 {
 private:
-    Card cards[5];
+    Card* cards = new Card[5];
 public:
     Hand(Card []);
     int containsHowManyPairs() const;
-    bool containsThreeKind() const;
-    bool containsFourKind() const;
-    bool containsFlush() const;
-    bool containsStraight() const;
+    HandKind containsThreeKind() const;
+    HandKind containsFourKind() const;
+    HandKind containsFlush() const;
+    HandKind containsStraight() const;
     void displayHand() const;
+    Card* getCards() const;
 };
 
 #endif

@@ -24,7 +24,7 @@ int Hand::containsHowManyPairs() const{
     return count;
 }
 
-bool Hand::containsThreeKind() const{
+HandKind Hand::containsThreeKind() const{
     int count = 0;
     for (size_t i = 0; i < 4; i++)
     {
@@ -32,13 +32,14 @@ bool Hand::containsThreeKind() const{
         {
             if(cards[i].getSuit() == cards[j].getSuit()) ++count;
         }
-        if(count == 3) return true; else count = 0;
+        if(count == 3) return THREE_KIND; else count = 0;
     }
-    return false;
+    return NOTHING;
 }
 
-bool Hand::containsFourKind() const{
+HandKind Hand::containsFourKind() const{
     int count = 0;
+    HandKind retVal = NOTHING;
     for (size_t i = 0; i < 4; i++)
     {
         count = 0;
@@ -46,27 +47,25 @@ bool Hand::containsFourKind() const{
         {
             if(cards[i].getSuit() == cards[j].getSuit()) ++count;
         }
-        if(count == 3) {
-            return true;
-        } else if (i == 3) {
-            return false;
-        }
+        if(count == 4) {
+            retVal = FOUR_KIND;
+        } 
     }
-    return false;
+    return retVal;
 }
 
-bool Hand::containsFlush() const {
+HandKind Hand::containsFlush() const {
     int prev_suit = cards[0].getSuit();
     
     for (size_t i = 1; i < 5; i++)
     {
-        if( prev_suit != cards[i].getSuit() ) return false;
+        if( prev_suit != cards[i].getSuit() ) return NOTHING;
     }
 
-    return true;
+    return FLUSH;
 }
 
-bool Hand::containsStraight() const {
+HandKind Hand::containsStraight() const {
     
     int sortedFaces[5];
     
@@ -90,9 +89,9 @@ bool Hand::containsStraight() const {
             
     for (size_t i = 0; i < 4; i++)
     {
-        if (sortedFaces[i] - sortedFaces[i + 1] != 1) return false;
+        if ((sortedFaces[i] - sortedFaces[i + 1]) != 1) return NOTHING;
     }
-    return true;
+    return STRAIGHT;
 }
 
 void Hand::displayHand() const {
@@ -103,3 +102,6 @@ void Hand::displayHand() const {
     }
     
 }
+
+
+Card* Hand::getCards() const { return cards; }

@@ -19,6 +19,7 @@ public:
     bool moreCards();
     void displayDeck();
     Card* dealCards(int);
+    uint16_t totalPoints(Hand);
     int winnerDealer(Hand, Hand);
 };
 

@@ -63,18 +63,18 @@ void DeckOfCards::displayDeck() {
 }
 uint8_t convertToPoints(Hand hand) {
     uint8_t count = 0;
-    if (hand.containsFlush())
+    if (hand.containsFlush() == FLUSH)
     {
         std::cout << "The hand contains flush!" << std::endl;
         count += 8;
-    } else if (hand.containsFourKind())
+    } else if (hand.containsFourKind() == FOUR_KIND)
     {
         std::cout << "The hand contains four kind!" << std::endl;
         count += 7;
-    } else if (hand.containsThreeKind()) {
+    } else if (hand.containsThreeKind() == THREE_KIND) {
         std::cout << "The hand contains three kind!" << std::endl;
         count += 6;
-    } else if (hand.containsStraight()) {
+    } else if (hand.containsStraight() == STRAIGHT) {
         std::cout << "The hand contains straight!" << std::endl;
         count += 5;
     } else {
@@ -88,9 +88,29 @@ uint8_t convertToPoints(Hand hand) {
     }
     return count;
 }
+
+uint16_t DeckOfCards::totalPoints(Hand hand) {
+    Card* cards = hand.getCards();
+    uint16_t total = 0;
+    
+    for (size_t i = 0; i < 5; i++)
+    {
+        if(cards[i].getFace() == 1) total += 14; else total += cards[i].getFace();
+    }
+    
+    return total;
+}
+
 int DeckOfCards::winnerDealer(Hand hand1, Hand hand2) {
-    uint8_t points[2] = {0, 0};
+    uint16_t points[2] = {0, 0};
     points[0] = convertToPoints(hand1);
     points[1] = convertToPoints(hand2);
+    
+    if(points[0] == points[1]) {
+        points[0] = totalPoints(hand1);
+        points[1] = totalPoints(hand2);
+        std::cout << "Hand1: " << points[0] << " Hand2:" << points[1] << std::endl;
+    }
+    
     return (points[0] > points[1]) ? 1 : ((points[0] < points[1]) ? 2 : 0);
 }
