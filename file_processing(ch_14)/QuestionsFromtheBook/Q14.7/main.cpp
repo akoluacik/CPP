@@ -40,7 +40,7 @@ int main(int argc, char *argv[]) {
     // read the oldMast.dat file
     while (inOldMaster >> accountNumber >> first_name >> last_name >> currentBalance) {
         fullName = first_name + " " + last_name;
-        found = true;
+        found = false;
         //std::cout << accountNumber << " " << fullName << " " << currentBalance << std::endl;
         // read the trans.dat file
         while (inTransaction >> accountNum >> dollarAmount) {
