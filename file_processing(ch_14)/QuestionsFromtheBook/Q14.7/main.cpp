@@ -35,21 +35,34 @@ int main(int argc, char *argv[]) {
     int accountNumber, accountNum;
     std::string first_name, last_name, fullName;
     double currentBalance, dollarAmount;
+    bool found = false;
 
     // read the oldMast.dat file
     while (inOldMaster >> accountNumber >> first_name >> last_name >> currentBalance) {
         fullName = first_name + " " + last_name;
+        found = true;
         //std::cout << accountNumber << " " << fullName << " " << currentBalance << std::endl;
         // read the trans.dat file
         while (inTransaction >> accountNum >> dollarAmount) {
             // if match exists
             if(accountNumber == accountNum) {
                 currentBalance += dollarAmount; // update the current balance
-            } else {
-                std::cout << "Unmatched transaction record for account number " << accountNum << std::endl;
+                found = true;
+                break;
+            } 
+
+            // this is necessary if accountNum doesn't appear in oldmast.dat file because
+            // cursor of inTransaction reaches the end of the file. To keep continue to read
+            // we need to get re-positioned it from beginning. But this time, it cannot handle
+            // the transactions if accountNum appears multiple times.
+            if(inTransaction.eof()) {
+                inTransaction.seekg(std::ios::beg);
+                break;
             }
         }
-        
+        if(!found) {
+            std::cout << "Unmatched transaction record for # " << accountNumber << std::endl;
+        }
         // write the new records to the newmast.dat file
         outNewMaster << accountNumber << ' ' << fullName << ' ' << currentBalance << std::endl;
     }
