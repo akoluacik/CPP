@@ -8,7 +8,7 @@ class Weather_Api_Handler : public Api_Handler
 private:
     
     std::string query = "https://api.openweathermap.org/data/2.5/weather?q=";
-    std::string api_key = "4ee99b8f42e14e10abadf929595cb0b3";
+    std::string api_key = "secret";
     std::string params = "&appid=";
     std::string readBuffer;
 public:

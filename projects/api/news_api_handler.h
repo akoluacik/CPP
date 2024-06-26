@@ -9,7 +9,7 @@ private:
     // TODO
     std::string query = "https://newsapi.org/v2/everything?q=";
     std::string params = "";
-    std::string api_key = "&apiKey=b1b0bc94cc2f49189bd3dd2d5e110a13";
+    std::string api_key = "&apiKey=secret";
     std::string readBuffer;
 public:
     News_Api_Handler();
